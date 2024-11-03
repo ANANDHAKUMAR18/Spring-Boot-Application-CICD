@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_USERNAME = 'anandhakumarg'
         DOCKER_IMAGE = 'anand-spring-boot-app'
-        DOCKER_TAG = 'v4'
+        DOCKER_TAG = 'v1'
         REGISTRY_CREDENTIALS = credentials('docker-password')
         GIT_USER_NAME = 'ANANDHAKUMAR18'
         GIT_REPO_NAME = 'Spring-Boot-Application-CICD.git'
@@ -60,7 +60,7 @@ pipeline {
                         sh """
                         git config user.email "anandh@google.com"
                         git config user.name "AnandhakumarG"
-                        sed -i "s/v2/ ${DOCKER_TAG}/ " java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                        sed -i "s/tag/ ${DOCKER_TAG}/ " java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                         
                         git add .
                         git commit -m "Update Deployment Manifest File to Version ${DOCKER_TAG}"
