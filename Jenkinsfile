@@ -74,7 +74,7 @@ pipeline {
        stage('Deploy Argocd Application') {
            steps {
                script {
-                   sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/'
+                   sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests'
                    sh 'kubectl apply -f application.yml'
                }
            }
